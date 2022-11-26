@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CORE_MVC_EXAM.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Students
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instrument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LessonAt)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Students" asp-route-id="@item.LessonId">Students</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instrument.InstrumentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonAt)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
